@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1181486302032247476}
   - component: {fileID: 651717885772433325}
   m_Layer: 9
-  m_Name: BowAttack
+  m_Name: RapidShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 3747231163471848607}
   - component: {fileID: 4553535014092931618}
   m_Layer: 9
-  m_Name: 'SwordAttack2 '
+  m_Name: SwordDownwardSlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -711,9 +711,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_attacks:
-  - {fileID: 5168922261690494272}
-  - {fileID: 8218900584688308139}
-  - {fileID: 651717885772433325}
+  - attack: {fileID: 8218900584688308139}
+    attackId: SwordDownwardSlash
+  - attack: {fileID: 5168922261690494272}
+    attackId: SwordHorizontalSlash
+  - attack: {fileID: 651717885772433325}
+    attackId: RapidShot
 --- !u!1 &8541143998248123936
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +730,7 @@ GameObject:
   - component: {fileID: 3952140636360089301}
   - component: {fileID: 3934950713052408557}
   m_Layer: 9
-  m_Name: SwordAttack1
+  m_Name: SwordHorizontalSlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

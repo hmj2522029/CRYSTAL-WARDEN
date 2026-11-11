@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VerticalSlashAttack2 : AttackBase
+public class KnifeStab : AttackBase
 {
     [SerializeField] AudioClip m_attackSE;    //攻撃音
-
 
     private AttackHitbox m_hitbox;
 
@@ -17,7 +16,7 @@ public class VerticalSlashAttack2 : AttackBase
 	protected override void OnStartAttack()
 	{
         //攻撃音を鳴らす
-        AudioManager.Instance.PlaySE(m_attackSE, 0.7f);
+        AudioManager.Instance.PlaySE(m_attackSE, 0.5f);
 
         m_hitbox.SetDirection(m_isRight);
 		m_hitbox.EnableHitbox(m_damage);    //当たり判定の有効化

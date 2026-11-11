@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordAttack2 : AttackBase
+public class VerticalClawSlash : AttackBase
 {
     [SerializeField] AudioClip m_attackSE;    //攻撃音
+
 
     private AttackHitbox m_hitbox;
 
@@ -13,24 +14,18 @@ public class SwordAttack2 : AttackBase
 		m_hitbox = GetComponent<AttackHitbox>();
 	}
 
-	private void Update()
-	{
-
-		m_hitbox.SetDirection(m_isRight);
-		
-	}
-
 	protected override void OnStartAttack()
 	{
         //攻撃音を鳴らす
-        AudioManager.Instance.PlaySE(m_attackSE, 0.7f);
+        AudioManager.Instance.PlaySE(m_attackSE, 0.3f);
 
-        m_hitbox.EnableHitbox(m_damage);    //当たり判定の有効化
-
+        m_hitbox.SetDirection(m_isRight);
+		m_hitbox.EnableHitbox(m_damage);    //当たり判定の有効化
 	}
 	protected override void OnEndAttack()
 	{
 
 		m_hitbox.DisableHitbox();   //当たり判定の無効化
 	}
+
 }

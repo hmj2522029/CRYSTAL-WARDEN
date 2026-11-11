@@ -1,19 +1,19 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	[SerializeField] float m_speed;					//‘¬“x
+	[SerializeField] float m_speed;					//é€Ÿåº¦
 
-	private PlayerAnimation m_playerAnimation;		//ƒAƒjƒ[ƒVƒ‡ƒ“
-	private PlayerInput m_playerInput;				//“ü—Í
-	private Movement m_movement;					//ˆÚ“®
+	private PlayerAnimation m_playerAnimation;		//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
+	private PlayerInput m_playerInput;				//å…¥åŠ›
+	private Movement m_movement;					//ç§»å‹•
 	private Health m_health;						//HP
-	private AttackController m_attackController;    //UŒ‚
+	private AttackController m_attackController;    //æ”»æ’ƒ
 
-	private bool m_isDeath = false;		//€‚ñ‚Å‚¢‚é‚©
-	private bool m_isRight = false;		//•ûŒü(¶‰E•ûŒü‚Ì“ñ•ûŒüŒÀ’è‚¾‚©‚ç)
+	private bool m_isDeath = false;		//æ­»ã‚“ã§ã„ã‚‹ã‹
+	private bool m_isRight = false;		//æ–¹å‘(å·¦å³æ–¹å‘ã®äºŒæ–¹å‘é™å®šã ã‹ã‚‰)
 
 	private void Awake()
 	{
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 	{
 		if (m_isDeath) return;
 
-		//€‚ñ‚¾‚ç€–SƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶
+		//æ­»ã‚“ã ã‚‰æ­»äº¡ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å†ç”Ÿ
 		if (m_health.IsDeath && !m_isDeath)
 		{
 			m_isDeath = m_health.IsDeath;
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 			return;
 		}
 
-		//¶‰E•ûŒü‚Ì”»’è
+		//å·¦å³æ–¹å‘ã®åˆ¤å®š
 		if (m_playerInput.Input.x > 0)
 		{
 			m_isRight = true;
@@ -52,48 +52,48 @@ public class Player : MonoBehaviour
 		}
 		
 
-		//“ü—Í—LŒø‚Ì
+		//å…¥åŠ›æœ‰åŠ¹ã®æ™‚
 		if (!m_playerInput.IgnoreInputMove)
 		{
-			//ˆÚ“®
+			//ç§»å‹•
 			m_movement.Move(m_playerInput.Input, m_speed);
 
-			//ˆÚ“®ƒAƒjƒ[ƒVƒ‡ƒ“
+			//ç§»å‹•ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 			m_playerAnimation.MoveAnime(m_playerInput.Input);
 
-			//•ûŒü
+			//æ–¹å‘
 			m_attackController.SetDirection(m_isRight);
 
 		}
-		//“ü—Í–³Œø‚Ì
+		//å…¥åŠ›ç„¡åŠ¹ã®æ™‚
 		else if(m_playerInput.IgnoreInputMove)
 		{
-			//“®‚«‚ğ~‚ß‚é
+			//å‹•ãã‚’æ­¢ã‚ã‚‹
 			m_movement.Stop();
 		}
 
-		//Œ•UŒ‚ƒAƒjƒ[ƒVƒ‡ƒ“
+		//å‰£æ”»æ’ƒã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 		if(m_playerInput.SwordAttackDown && !m_playerAnimation.CanMoveAttack)
 		{
-			//Œ•UŒ‚ƒAƒjƒ[ƒVƒ‡ƒ“1
+			//å‰£æ”»æ’ƒã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³1
 			if (m_playerInput.MoveInputTime < 0.5f)
 			{
 				m_playerAnimation.SwordAttackAnime1();
-				m_attackController.SelectAttack(0);		//UŒ‚ƒCƒ“ƒfƒbƒNƒXİ’è
+				m_attackController.SelectAttack(PlayerAttackIds.SwordHorizontalSlash);		
 			}
-			//Œ•UŒ‚ƒAƒjƒ[ƒVƒ‡ƒ“2
+			//å‰£æ”»æ’ƒã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³2
 			else
 			{
 				m_playerAnimation.SwordAttackAnime2();
-				m_attackController.SelectAttack(1);     //UŒ‚ƒCƒ“ƒfƒbƒNƒXİ’è
+				m_attackController.SelectAttack(PlayerAttackIds.SwordDownwardSlash);     
 			}
 
 		}
-		//‹|UŒ‚ƒAƒjƒ[ƒVƒ‡ƒ“
+		//å¼“æ”»æ’ƒã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 		else if(m_playerInput.BowAttackDown && !m_playerAnimation.CanMoveAttack)
 		{
 			m_playerAnimation.BowAttackAnime();
-			m_attackController.SelectAttack(2);     //UŒ‚ƒCƒ“ƒfƒbƒNƒXİ’è
+			m_attackController.SelectAttack(PlayerAttackIds.RapidShot);     
 		}
 
 	}

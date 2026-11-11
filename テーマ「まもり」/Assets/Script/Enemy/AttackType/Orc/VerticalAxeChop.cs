@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AxAttack1 : AttackBase
+public class VerticalAxeChop : AttackBase
 {
     [SerializeField] AudioClip m_attackSE;    //攻撃音
 

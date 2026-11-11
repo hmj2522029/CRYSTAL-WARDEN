@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class AxAttack2 : AttackBase
+public class SwordHorizontalSlash : AttackBase
 {
     [SerializeField] AudioClip m_attackSE;    //攻撃音
 
@@ -16,7 +17,7 @@ public class AxAttack2 : AttackBase
 	protected override void OnStartAttack()
 	{
         //攻撃音を鳴らす
-        AudioManager.Instance.PlaySE(m_attackSE, 0.7f);
+        AudioManager.Instance.PlaySE(m_attackSE, 0.5f);
 
         m_hitbox.SetDirection(m_isRight);
 		m_hitbox.EnableHitbox(m_damage);    //当たり判定の有効化
@@ -26,4 +27,5 @@ public class AxAttack2 : AttackBase
 
 		m_hitbox.DisableHitbox();   //当たり判定の無効化
 	}
+
 }

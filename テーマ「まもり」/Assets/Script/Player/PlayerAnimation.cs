@@ -1,6 +1,5 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +9,7 @@ public class PlayerAnimation : MonoBehaviour
 	private Animator m_anime;
 	private SpriteRenderer m_spriteRenderer;
 
-	private bool m_canMoveAttack = false;    //UŒ‚ƒAƒjƒ[ƒVƒ‡ƒ“‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©
+	private bool m_canMoveAttack = false;    //æ”»æ’ƒã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹
 
 	public bool CanMoveAttack => m_canMoveAttack;
 
@@ -24,7 +23,7 @@ public class PlayerAnimation : MonoBehaviour
 	{
 		m_anime.SetFloat("Input", input.magnitude);
 
-		//X•ûŒü‚Å‚Ì‰æ‘œ”½“]
+		//Xæ–¹å‘ã§ã®ç”»åƒåè»¢
 		if(input.x > 0 )
 		{
 			m_spriteRenderer.flipX = false;
@@ -67,13 +66,13 @@ public class PlayerAnimation : MonoBehaviour
 		m_anime.SetTrigger("isDeath");
 	}
 
-	//ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒCƒxƒ“ƒgŒÄ‚Ô
+	//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¤ãƒ™ãƒ³ãƒˆå‘¼ã¶
 	public void EndAttack()
 	{
 		m_canMoveAttack = false;
 	}
 
-	//ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒCƒxƒ“ƒg‚ÅŒÄ‚Ô
+	//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¤ãƒ™ãƒ³ãƒˆã§å‘¼ã¶
 	public void StartAttack()
 	{
 		m_canMoveAttack =	true;

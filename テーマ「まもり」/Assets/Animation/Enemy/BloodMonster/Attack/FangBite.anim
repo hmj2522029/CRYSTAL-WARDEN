@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack1
+  m_Name: FangBite
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,21 +21,21 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1666429950, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
+      value: {fileID: -1717949771, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
     - time: 0.16666667
-      value: {fileID: 2081786079, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
+      value: {fileID: 1705968870, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
     - time: 0.33333334
-      value: {fileID: 722238677, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
+      value: {fileID: 740451359, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
     - time: 0.5
-      value: {fileID: -720493513, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
+      value: {fileID: -922126687, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
     - time: 0.6666667
-      value: {fileID: -1855016027, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
+      value: {fileID: 592694816, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
     - time: 0.8333333
-      value: {fileID: 166508145, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
+      value: {fileID: -192983315, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
     - time: 1
-      value: {fileID: -1567964084, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
+      value: {fileID: -1730025702, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
     - time: 1.1666666
-      value: {fileID: 1902457563, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
+      value: {fileID: -935685637, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -58,14 +58,14 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1666429950, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
-    - {fileID: 2081786079, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
-    - {fileID: 722238677, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
-    - {fileID: -720493513, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
-    - {fileID: -1855016027, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
-    - {fileID: 166508145, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
-    - {fileID: -1567964084, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
-    - {fileID: 1902457563, guid: 0fd0e708ac06dd94982ea81f1a0cd1de, type: 3}
+    - {fileID: -1717949771, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
+    - {fileID: 1705968870, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
+    - {fileID: 740451359, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
+    - {fileID: -922126687, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
+    - {fileID: 592694816, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
+    - {fileID: -192983315, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
+    - {fileID: -1730025702, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
+    - {fileID: -935685637, guid: 11e6de69657ab834bb452a8996baac01, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -92,28 +92,21 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: StartAttack
+    functionName: EndAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.65
+  - time: 0.8
     functionName: StartAttackController
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.0333333
+  - time: 1.05
     functionName: EndAttackController
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.1666666
-    functionName: EndAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

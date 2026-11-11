@@ -1,30 +1,30 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BowAttack : AttackBase
+public class RapidShot : AttackBase
 {
 
 	[SerializeField] Arrow m_arrowPrefab;
 
 	protected override void OnStartAttack()
 	{
-		//ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌÀ•Wæ“¾
+		//ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®åº§æ¨™å–å¾—
 		Vector3 mousePosition =
 			Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-		//•ûŒü‚Ìæ“¾
+		//æ–¹å‘ã®å–å¾—
 		Vector2 direction =
 			mousePosition - transform.position;
 
-		//–î¶¬
+		//çŸ¢ç”Ÿæˆ
 		Arrow arrow = Instantiate(
 			m_arrowPrefab,
 			transform.position,
 			Quaternion.identity
 		);
 
-		//–î‚Ìİ’è
+		//çŸ¢ã®è¨­å®š
 		arrow.SetDirection(direction);
 		arrow.SetDamage(m_damage);
 
@@ -34,7 +34,7 @@ public class BowAttack : AttackBase
 			direction.x
 		) * Mathf.Rad2Deg;
 
-		//–î‚ğŒü‚«‚ğƒ}ƒEƒXƒJ[ƒ\ƒ‹‚Ì‚Ù‚¤‚É•Ï‚¦‚é
+		//çŸ¢ã‚’å‘ãã‚’ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®ã»ã†ã«å¤‰ãˆã‚‹
 		arrow.transform.rotation =
 			Quaternion.Euler(0, 0, angle);
 

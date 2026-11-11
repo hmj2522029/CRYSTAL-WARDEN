@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NailAttack1 : AttackBase
+public class FangBite : AttackBase
 {
     [SerializeField] AudioClip m_attackSE;    //攻撃音
 
@@ -17,7 +17,7 @@ public class NailAttack1 : AttackBase
 	protected override void OnStartAttack()
 	{
         //攻撃音を鳴らす
-        AudioManager.Instance.PlaySE(m_attackSE, 0.3f);
+        AudioManager.Instance.PlaySE(m_attackSE, 0.7f);
 
         m_hitbox.SetDirection(m_isRight);
 		m_hitbox.EnableHitbox(m_damage);    //当たり判定の有効化

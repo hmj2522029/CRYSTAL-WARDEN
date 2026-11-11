@@ -1,25 +1,40 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
 
-	[SerializeField] List<AttackBase> m_attacks;
+    [System.Serializable]
+    public class Attack
+    {
+        public AttackBase attack;   //æ”»æ’ƒã®ç¨®é¡
+        public string attackId;     //æ”»æ’ƒã®ID(åå‰)
+    }
+
+
+    [SerializeField] List<Attack> m_attacks;
 
 	private AttackBase m_currentAttack;
 
-	public void SelectAttack(int index)
+	public void SelectAttack(string name)
 	{
-		//”ÍˆÍ“àƒ`ƒFƒbƒN
-		if (index < 0 || index >= m_attacks.Count) return;
+        foreach (var attack in m_attacks)
+        {
 
-		m_currentAttack = m_attacks[index];
+            if (attack.attackId == name)
+            {
+                m_currentAttack = attack.attack;
+                return;
+            }
 
+        }
 
 	}
 
-	//ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒCƒxƒ“ƒg‚ÅŒÄ‚Ô
+	//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¤ãƒ™ãƒ³ãƒˆã§å‘¼ã¶
 	public void StartAttackController()
 	{
 		if (m_currentAttack == null) return;
@@ -28,7 +43,7 @@ public class AttackController : MonoBehaviour
 
 	}
 
-	//ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒCƒxƒ“ƒg‚ÅŒÄ‚Ô
+	//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¤ãƒ™ãƒ³ãƒˆã§å‘¼ã¶
 	public void EndAttackController()
 	{
 		if (m_currentAttack == null) return;

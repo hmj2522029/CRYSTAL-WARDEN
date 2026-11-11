@@ -191,12 +191,12 @@ GameObject:
   - component: {fileID: 5765970112232360964}
   - component: {fileID: 3159257789802242212}
   - component: {fileID: 6756591819809114854}
-  - component: {fileID: 4920788353152673666}
   - component: {fileID: 8093212524828030591}
   - component: {fileID: 8608025465087924118}
   - component: {fileID: 6222894865210901330}
   - component: {fileID: 152999246503517811}
   - component: {fileID: 8985676817035965969}
+  - component: {fileID: 3393686831347294180}
   m_Layer: 8
   m_Name: BloodMonster
   m_TagString: Untagged
@@ -347,19 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb42ae6c2eec1c84da04b1d44bb9851c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4920788353152673666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6247047004571207952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22252981b0b618f49aa7f11436bc2b96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_spawnProbability: 20
 --- !u!114 &8093212524828030591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,8 +386,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_attacks:
-  - {fileID: 2291017729786991638}
-  - {fileID: 133543357293944521}
+  - attack: {fileID: 2291017729786991638}
+    attackId: VerticalClawSlash
+  - attack: {fileID: 133543357293944521}
+    attackId: FangBite
 --- !u!114 &152999246503517811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +417,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_interval: 0.2
   m_count: 5
+--- !u!114 &3393686831347294180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247047004571207952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2446e7e83e465c4cbbf2ea06b75b5a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawnProbability: 20
 --- !u!1 &7648761326976420991
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +443,7 @@ GameObject:
   - component: {fileID: 3138902026480453914}
   - component: {fileID: 2291017729786991638}
   m_Layer: 10
-  m_Name: NailAttack1
+  m_Name: VerticalClawSlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +549,7 @@ GameObject:
   - component: {fileID: 8503955139481967218}
   - component: {fileID: 133543357293944521}
   m_Layer: 10
-  m_Name: 'FangAttack2 '
+  m_Name: FangBite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,23 +1,23 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-	[SerializeField] int m_spawnProbability = 50;	//o‚éŠm—¦
+	[SerializeField] int m_spawnProbability = 50;	//å‡ºã‚‹ç¢ºç‡
 
-	private EnemyAnimation m_enemyAnimation;        //ƒAƒjƒ[ƒVƒ‡ƒ“
-	private TargetTracking m_targetTracking;		//’Ç]
-	private Movement m_movement;                    //ˆÚ“®
+	protected EnemyAnimation m_enemyAnimation;      //ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
+	protected AttackController m_attackController;  //æ”»æ’ƒ
+	protected Probability m_probability;            //ç¢ºç‡
+	private TargetTracking m_targetTracking;		//è¿½å¾“
+	private Movement m_movement;                    //ç§»å‹•
 	private Health m_health;                        //HP
-	private AttackController m_attackController;    //UŒ‚
-	private Probability m_probability;              //Šm—¦
-	private Collider2D[] m_colliders;				//“G‚É•t‚¢‚Ä‚¢‚é‘S‚Ä‚ÌƒRƒ‰ƒCƒ_[(UŒ‚‚ÌƒRƒ‰ƒCƒ_[‚à)
+	private Collider2D[] m_colliders;				//æ•µã«ä»˜ã„ã¦ã„ã‚‹å…¨ã¦ã®ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼(æ”»æ’ƒã®ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼ã‚‚)
 
-	private bool m_isDeath = false;     //€‚ñ‚Å‚¢‚é‚©
-	private bool m_isGameEnd = false;   //ƒQ[ƒ€‚ªI‚í‚Á‚½‚©‚Ç‚¤‚©
-	private bool m_isRight = false;     //•ûŒü(¶‰E•ûŒü‚Ì“ñ•ûŒüŒÀ’è‚¾‚©‚ç)
-	private Transform m_returnPosition;	//–ß‚éˆÊ’u
+	private bool m_isDeath = false;     //æ­»ã‚“ã§ã„ã‚‹ã‹
+	private bool m_isGameEnd = false;   //ã‚²ãƒ¼ãƒ ãŒçµ‚ã‚ã£ãŸã‹ã©ã†ã‹
+	private bool m_isRight = false;     //æ–¹å‘(å·¦å³æ–¹å‘ã®äºŒæ–¹å‘é™å®šã ã‹ã‚‰)
+	private Transform m_returnPosition;	//æˆ»ã‚‹ä½ç½®
 
 	public int SpawnProbability => m_spawnProbability;
 
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
 	{
 		if (m_isDeath) return;
 
-		//€‚ñ‚¾‚ç€–SƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶
+		//æ­»ã‚“ã ã‚‰æ­»äº¡ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å†ç”Ÿ
 		if (m_health.IsDeath && !m_isDeath)
 		{
 			m_isDeath = m_health.IsDeath;
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 			return;
 		}
 
-		//¶‰E•ûŒü‚Ì”»’è
+		//å·¦å³æ–¹å‘ã®åˆ¤å®š
 		if (m_targetTracking.InputDir.x > 0)
 		{
 			m_isRight = true;
@@ -57,48 +57,42 @@ public class Enemy : MonoBehaviour
 			m_isRight = false;
 		}
 
-		//ˆÚ“®
+		//ç§»å‹•
 		m_movement.Move(m_targetTracking.InputDir, m_targetTracking.Speed);
 
-		//ˆÚ“®ƒAƒjƒ[ƒVƒ‡ƒ“
+		//ç§»å‹•ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 		m_enemyAnimation.MoveAnime(m_targetTracking.InputDir);
 
-		//•ûŒü
+		//æ–¹å‘
 		m_attackController.SetDirection(m_isRight);
 
-		//ƒQ[ƒ€‚ªI‚í‚Á‚Ä‚¢‚éê‡‚ÍUŒ‚‚ğ‚³‚¹‚È‚¢
+		//ã‚²ãƒ¼ãƒ ãŒçµ‚ã‚ã£ã¦ã„ã‚‹å ´åˆã¯æ”»æ’ƒã‚’ã•ã›ãªã„
 		if(m_isGameEnd) return;
 
-		//UŒ‚ƒAƒjƒ[ƒVƒ‡ƒ“
+		//æ”»æ’ƒã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 		if (!m_targetTracking.IsMove && !m_enemyAnimation.CanMoveAttack)
 		{
+            Attack();
 
-			//UŒ‚ƒAƒjƒ[ƒVƒ‡ƒ“1(70“‚ÌŠm—¦‚Å)
-			if (m_probability.Check(70))
-			{
-				m_enemyAnimation.AttackAnime1();
-				m_attackController.SelectAttack(0);     //UŒ‚ƒCƒ“ƒfƒbƒNƒXİ’è
-			}
-			//UŒ‚ƒAƒjƒ[ƒVƒ‡ƒ“2(30“‚ÌŠm—¦‚Å)
-			else
-			{
-				m_enemyAnimation.AttackAnime2();
-				m_attackController.SelectAttack(1);     //UŒ‚ƒCƒ“ƒfƒbƒNƒXİ’è
-			}
-
-			//–{—ˆ‚ÍƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒCƒxƒ“ƒg‚Ì•û‚ÅŒÄ‚Ô‚ªØ‚è‘Ö‚¦‚Ì‘¬“x‚æ‚èUpdate‚Ì•û‚ª‘‚¢‚½‚ßè“®‚ÅŒÄ‚Ô
+			//æœ¬æ¥ã¯ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¤ãƒ™ãƒ³ãƒˆã®æ–¹ã§å‘¼ã¶ãŒåˆ‡ã‚Šæ›¿ãˆã®é€Ÿåº¦ã‚ˆã‚ŠUpdateã®æ–¹ãŒæ—©ã„ãŸã‚æ‰‹å‹•ã§å‘¼ã¶
 			m_enemyAnimation.StartAttack();
 
 		}
 
 	}
 
-	private IEnumerator DeathProcess()
+    protected virtual void Attack()
+    {
+        //æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§å®Ÿè£…ã™ã‚‹
+    }
+
+
+    private IEnumerator DeathProcess()
 	{
 		m_enemyAnimation.DeathAnime();
 		m_movement.Stop();
 
-		//‘S‚Ä‚ÌƒRƒ‰ƒCƒ_[‚ğ–³Œø‰»‚·‚é
+		//å…¨ã¦ã®ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’ç„¡åŠ¹åŒ–ã™ã‚‹
 		foreach (Collider2D collider in m_colliders)
 		{
 			collider.enabled = false;

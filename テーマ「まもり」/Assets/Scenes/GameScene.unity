@@ -726,9 +726,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyPrefab:
-  - {fileID: 6582020121142144934, guid: f7fc5ef3d2544f141b0f91618f420c9d, type: 3}
-  - {fileID: 4920788353152673666, guid: 43b64d23b5b2e0c43863b2ea5c8f326a, type: 3}
-  - {fileID: 3275754956956019152, guid: a1d2f5f6168be504097a7845f6ce0b19, type: 3}
+  - {fileID: 9193023317160167607, guid: f7fc5ef3d2544f141b0f91618f420c9d, type: 3}
+  - {fileID: 3393686831347294180, guid: 43b64d23b5b2e0c43863b2ea5c8f326a, type: 3}
+  - {fileID: 4666341155736767014, guid: a1d2f5f6168be504097a7845f6ce0b19, type: 3}
   m_target: {fileID: 204431556}
   m_spawnInterval: 2
 --- !u!114 &623143483
@@ -28707,7 +28707,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7117b6117e91f3a4fa7fc6f7f709c09a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -29080,6 +29080,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 708609292372002396, guid: a8468ae8d12a85c41b1d930a61fef28f,
+        type: 3}
+      propertyPath: m_Name
+      value: RapidShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705084150380719476, guid: a8468ae8d12a85c41b1d930a61fef28f,
+        type: 3}
+      propertyPath: m_attacks.Array.data[0].attack
+      value: 
+      objectReference: {fileID: 5331132239256754326}
+    - target: {fileID: 1705084150380719476, guid: a8468ae8d12a85c41b1d930a61fef28f,
+        type: 3}
+      propertyPath: m_attacks.Array.data[0].attackId
+      value: SwordDownwardSlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753749748522424419, guid: a8468ae8d12a85c41b1d930a61fef28f,
+        type: 3}
+      propertyPath: m_Name
+      value: SwordDownwardSlash
+      objectReference: {fileID: 0}
     - target: {fileID: 5168922261690494272, guid: a8468ae8d12a85c41b1d930a61fef28f,
         type: 3}
       propertyPath: m_attackSE
@@ -29150,6 +29170,11 @@ PrefabInstance:
       propertyPath: m_attackSE
       value: 
       objectReference: {fileID: 8300000, guid: 15d411abb3b57f941be3a6660aed528c, type: 3}
+    - target: {fileID: 8541143998248123936, guid: a8468ae8d12a85c41b1d930a61fef28f,
+        type: 3}
+      propertyPath: m_Name
+      value: SwordHorizontalSlash
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4192873668172261643, guid: a8468ae8d12a85c41b1d930a61fef28f, type: 3}
@@ -29160,6 +29185,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 576374817}
   m_SourcePrefab: {fileID: 100100000, guid: a8468ae8d12a85c41b1d930a61fef28f, type: 3}
+--- !u!114 &5331132239256754326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8218900584688308139, guid: a8468ae8d12a85c41b1d930a61fef28f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5331132239256754325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fb46f29c95ae44abe70ac56dac4fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7111662476811610110 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2198072366251598076, guid: 9edf84bee4d90f541917db1efcf40d41,

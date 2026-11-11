@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5564435770806620964}
   - component: {fileID: 5614226909563932784}
   - component: {fileID: 8325671084080544283}
-  - component: {fileID: 6582020121142144934}
   - component: {fileID: 9171495354925143039}
   - component: {fileID: 6554198555077312443}
   - component: {fileID: 8382588479314698257}
@@ -20,6 +19,7 @@ GameObject:
   - component: {fileID: 2212007391264071663}
   - component: {fileID: 7548913317020095694}
   - component: {fileID: 3421759034833286135}
+  - component: {fileID: 9193023317160167607}
   m_Layer: 8
   m_Name: Orc
   m_TagString: Untagged
@@ -131,19 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb42ae6c2eec1c84da04b1d44bb9851c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6582020121142144934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785142455490248287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22252981b0b618f49aa7f11436bc2b96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_spawnProbability: 40
 --- !u!114 &9171495354925143039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,8 +222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_attacks:
-  - {fileID: 3320769702362352323}
-  - {fileID: 519575290957823436}
+  - attack: {fileID: 519575290957823436}
+    attackId: ChargedAxeChop
+  - attack: {fileID: 3320769702362352323}
+    attackId: VerticalAxeChop
 --- !u!114 &3421759034833286135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +240,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_interval: 0.2
   m_count: 5
+--- !u!114 &9193023317160167607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785142455490248287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f199c12d280b44d8e9e5495e72969a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawnProbability: 40
 --- !u!1 &3042389366321608075
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +266,7 @@ GameObject:
   - component: {fileID: 1378743281801312507}
   - component: {fileID: 519575290957823436}
   m_Layer: 10
-  m_Name: 'AxAttack2 '
+  m_Name: ChargedAxeChop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -437,7 +439,7 @@ GameObject:
   - component: {fileID: 8799277960981076463}
   - component: {fileID: 3320769702362352323}
   m_Layer: 10
-  m_Name: AxAttack1
+  m_Name: VerticalAxeChop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

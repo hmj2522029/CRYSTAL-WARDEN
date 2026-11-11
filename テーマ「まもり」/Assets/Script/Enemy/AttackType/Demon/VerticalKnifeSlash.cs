@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FangAttack2 : AttackBase
+public class VerticalKnifeSlash : AttackBase
 {
     [SerializeField] AudioClip m_attackSE;    //攻撃音
 
@@ -27,5 +27,4 @@ public class FangAttack2 : AttackBase
 
 		m_hitbox.DisableHitbox();   //当たり判定の無効化
 	}
-
 }
